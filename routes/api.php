@@ -15,14 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::post('login', 'api\v1\UserController@login');
-Route::post('register', 'api\v1\UserController@register');
-
-
-Route::group(['middleware' => 'auth:mehdi'], function () {
-    Route::post('details', 'api\v1\UserController@details');
+Route::post('login-v2', 'api\v2\UserController@login');
+Route::post('register-v2', 'api\v2\UserController@register');
+Route::group(['middleware' => 'auth:mehdiToken'], function () {
+    Route::post('details-v2', 'api\v1\UserController@details');
 });
 
-Route::middleware('auth:mehdi')->get('/user', function (Request $request) {
+
+Route::post('login', 'api\v1\UserController@login');
+Route::post('register', 'api\v1\UserController@register');
+Route::middleware('auth:api')->get('/details', function (Request $request) {
     return $request->user();
 });

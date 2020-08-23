@@ -46,8 +46,8 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
-        'mehdi' => [
-            'driver' => 'passport',
+        'mehdiToken' => [
+            'driver' => 'token',
             'provider' => 'users',
             'hash' => false,
         ],
